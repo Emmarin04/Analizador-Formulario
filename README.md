@@ -1,8 +1,4 @@
 # Analizador-Formulario
-¡Por supuesto! Un buen archivo `README.md` es fundamental para cualquier proyecto en GitHub. Explica qué es, para qué sirve y cómo configurarlo.
-
-Aquí tienes un `README.md` completo y bien estructurado, escrito en formato Markdown. Simplemente puedes copiar y pegar este contenido en un nuevo archivo llamado `README.md` dentro de tu repositorio de GitHub.
-
 ---
 
 # Analizador de Aplicaciones Educativas con IA
