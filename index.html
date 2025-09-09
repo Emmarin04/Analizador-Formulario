@@ -261,7 +261,7 @@
             updateStatus('Contactando con la IA para analizar...', 'loading');
 
             try {
-                const prompt = `Como experto en catalogación de tecnología educativa, analiza ${sourceContent}.
+                const prompt = \`Como experto en catalogación de tecnología educativa, analiza \${sourceContent}.
                 Extrae la siguiente información y respóndela en un objeto JSON válido con las claves especificadas:
 
                 1.  "titulo": Un título conciso y atractivo para la aplicación.
@@ -271,7 +271,7 @@
                 5.  "nivelEducativo": Un array con uno o más niveles educativos. Elige de la lista: ["Infantil", "Primaria", "Secundaria", "Bachillerato", "Formación Profesional", "Universidad", "Formación para Adultos / Autoaprendizaje", "Formación del profesorado"].
                 6.  "areaConocimiento": Un array con una o más áreas de conocimiento. Elige de la lista: ["Ciencia y Tecnología", "Pensamiento Lógico-Matemático", "Lenguaje y Comunicación", "Ciencias Sociales y Cívicas", "Artes y Humanidades", "Desarrollo Personal y Social", "Recursos para la docencia y la organización", "Idiomas"].
 
-                Responde únicamente con el objeto JSON. No incluyas texto adicional antes o después.`;
+                Responde únicamente con el objeto JSON. No incluyas texto adicional antes o después.\`;
                 
                 const schema = {
                     type: "OBJECT", properties: { "titulo": { "type": "STRING" }, "descripcion": { "type": "STRING" }, "palabrasClave": { "type": "STRING" }, "tipoRecurso": { "type": "ARRAY", "items": { "type": "STRING" }}, "nivelEducativo": { "type": "ARRAY", "items": { "type": "STRING" }}, "areaConocimiento": { "type": "ARRAY", "items": { "type": "STRING" }} },
@@ -279,12 +279,12 @@
                 };
                 
                 const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { responseMimeType: "application/json", responseSchema: schema }};
-                const apiKey = "AIzaSyA_dU02VW_faoCSvyLFW7hpIjn4Uudcr0g"; 
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                const apiKey = ""; // <-- ¡RECUERDA PEGAR TU CLAVE API AQUÍ!
+                const apiUrl = \`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=\${apiKey}\`;
 
                 const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
 
-                if (!response.ok) throw new Error(`Error de la API [${response.status}]: ${await response.text()}`);
+                if (!response.ok) throw new Error(\`Error de la API [\${response.status}]: \${await response.text()}\`);
 
                 const result = await response.json();
                 
@@ -300,7 +300,7 @@
 
             } catch (error) {
                 console.error('Error en el proceso:', error);
-                updateStatus(`Error: ${error.message}. Inténtalo de nuevo.`, 'error');
+                updateStatus(\`Error: \${error.message}. Inténtalo de nuevo.\`, 'error');
             } finally {
                 setLoadingState(false);
             }
@@ -308,7 +308,7 @@
 
         // --- FUNCIONES AUXILIARES ---
         function buildGoogleFormUrl(aiData, appUrl, authorName, platform) {
-            const baseUrl = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_CONFIG.formId}/viewform?usp=pp_url`;
+            const baseUrl = \`https://docs.google.com/forms/d/e/\${GOOGLE_FORM_CONFIG.formId}/viewform?usp=pp_url\`;
             const params = new URLSearchParams();
             
             if (aiData.titulo) params.append(GOOGLE_FORM_CONFIG.fieldIds.titulo, aiData.titulo);
@@ -322,7 +322,7 @@
             aiData.nivelEducativo?.forEach(item => params.append(GOOGLE_FORM_CONFIG.fieldIds.nivelEducativo, item));
             aiData.areaConocimiento?.forEach(item => params.append(GOOGLE_FORM_CONFIG.fieldIds.areaConocimiento, item));
 
-            return `${baseUrl}&${params.toString()}`;
+            return \`\${baseUrl}&\${params.toString()}\`;
         }
         
         function updateStatus(message, type = 'info') {
