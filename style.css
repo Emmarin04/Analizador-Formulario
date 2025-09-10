@@ -1,0 +1,65 @@
+/* Estilos base */
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Variables para los temas de color (Día y Noche) */
+:root {
+    /* Tema Día */
+    --background-day: #f3f4f6; /* gris-100 de Tailwind */
+    --text-day: #1f2937;       /* gris-800 de Tailwind */
+    --card-bg-day: #ffffff;
+    --input-bg-day: #f9fafb;  /* gris-50 de Tailwind */
+    --primary-color: #0891b2;  /* cian-600 de Tailwind */
+    --primary-hover: #0e7490; /* cian-700 de Tailwind */
+
+    /* Tema Noche */
+    --background-night: #111827; /* gris-900 de Tailwind */
+    --text-night: #e5e7eb;       /* gris-200 de Tailwind */
+    --card-bg-night: #1f2937;    /* gris-800 de Tailwind */
+    --input-bg-night: #374151;   /* gris-700 de Tailwind */
+}
+
+/* Estilos específicos para el modo noche (dark-mode) */
+body.dark-mode {
+    background-color: var(--background-night);
+    color: var(--text-night);
+}
+body.dark-mode main {
+    background-color: var(--card-bg-night);
+    border-color: #374151; /* gris-700 */
+}
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: var(--input-bg-night);
+    border-color: #4b5563; /* gris-600 */
+    color: var(--text-night);
+}
+body.dark-mode label {
+    color: #d1d5db; /* gris-300 */
+}
+body.dark-mode p,
+body.dark-mode footer a {
+    color: #9ca3af; /* gris-400 */
+}
+body.dark-mode .hover\:bg-gray-200:hover {
+    background-color: #374151; /* gris-700 para el hover del botón de tema */
+}
+
+
+/* Animación del spinner de carga */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #ffffff;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
