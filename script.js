@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN ---
 const GOOGLE_FORM_CONFIG = {
-    formId: "1FAIpQLSdYIuawJTmEtCCNVusErNszuWIfc-hAL1Zy-gtgNYhmr4wYTA",
+    formId: "AIzaSyA_dU02VW_faoCSvyLFW7hpIjn4Uudcr0g",
     fieldIds: {
         autor: "entry.2027879855",
         titulo: "entry.1936764678",
@@ -315,4 +315,5 @@ document.addEventListener('DOMContentLoaded', () => {
     langEnBtn.addEventListener('click', () => setLanguage('en'));
     authorInput.addEventListener('input', () => localStorage.setItem('authorName', authorInput.value));
     platformSelect.addEventListener('change', () => localStorage.setItem('creationPlatform', platformSelect.value));
+
 });
