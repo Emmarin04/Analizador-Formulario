@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN ---
 const GOOGLE_FORM_CONFIG = {
-    formId: "AIzaSyBLqhpiXv_Ls3YjwJdnUkHSAlf94EQrpIg",
+    formId: "AIzaSyA_dU02VW_faoCSvyLFW7hpIjn4Uudcr0g",
     fieldIds: {
         autor: "entry.2027879855",
         titulo: "entry.1936764678",
@@ -317,4 +317,5 @@ document.addEventListener('DOMContentLoaded', () => {
     platformSelect.addEventListener('change', () => localStorage.setItem('creationPlatform', platformSelect.value));
 
 });
+
 
